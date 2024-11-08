@@ -46,20 +46,7 @@ function renderTable(data) {
     });
 }
 
-//function for approving selected requests
 
-function approveRequests(){
-
-    // checking selections
-    const table = document.getElementById('leaveTableBody')
-    const rows = table.rows
-    rows.forEach((row)=>{
-        if(row[0].checked === true){
-            console.log("yes")
-        }
-    })
-
-}
 
 
 
@@ -68,3 +55,20 @@ function approveRequests(){
 window.onload = function () {
     renderTable(leaveData);  // Initial render
 };
+
+var getrows;
+const table = document.getElementById('leaveTableBody');
+getrows = table.rows;
+setTimeout(approveRequests,1000)
+//function for approving selected requests
+
+function approveRequests(){
+    var i;
+    // checking selections
+    console.log(rows)
+    console.log(getrows.length)
+    var rows = Array(getrows)
+    console.log(rows[0])
+
+}
+

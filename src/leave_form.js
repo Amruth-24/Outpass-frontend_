@@ -46,9 +46,8 @@ addRequestForm.addEventListener('submit', (e) => {
         status: "pending",
         stud_id: `${user_details.uid}`,
         app_date: ""
-    })
-
-    // Collect the form data
+    }).then(()=>{
+            // Collect the form data
     const formData = {
         name: document.getElementById('name').value,
         gender: document.getElementById('gender').value,
@@ -79,6 +78,9 @@ addRequestForm.addEventListener('submit', (e) => {
     window.location.href = "submitted.html";
     // submitForm(e)
     // window.location.href = "studashboard.html";
+    })
+
+
 
 
 

@@ -17,6 +17,7 @@ const db = getFirestore()
 // collection ref
 const colRef_users = collection(db,'users')
 const colRef_requests = collection(db,'requests')
+const q1 = query(colRef_requests,where('status','==','pending'))
 
 
 
