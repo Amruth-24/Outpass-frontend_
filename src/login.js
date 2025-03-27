@@ -49,7 +49,7 @@ document.getElementById("rand").addEventListener("click", async function (e) {
 
                 // Redirect to homepage or another page
                 // console.log(user.uid)
-                window.location.href = "studashboard.html";
+                setTimeout(function(){window.location.href = "studashboard.html";},3000)
 
             }
 

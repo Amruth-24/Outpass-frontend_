@@ -46,8 +46,9 @@ addRequestForm.addEventListener('submit', (e) => {
         status: "pending",
         stud_id: `${user_details.uid}`,
         app_date: ""
-    }).then(()=>{
-            // Collect the form data
+    })
+
+    // Collect the form data
     const formData = {
         name: document.getElementById('name').value,
         gender: document.getElementById('gender').value,
@@ -71,17 +72,14 @@ addRequestForm.addEventListener('submit', (e) => {
     // Store the form data in localStorage to access it on the submitted.html page
     localStorage.setItem('leaveData', JSON.stringify(formData));
 
+    console.log("submitted")
     //clear the form
     addRequestForm.reset()
 
     // Redirect to the submitted page
-    window.location.href = "submitted.html";
+    // window.location.href = "submitted.html";
     // submitForm(e)
-    // window.location.href = "studashboard.html";
-    })
-
-
-
+    setTimeout(function(){window.location.href = "studashboard.html";},3000)
 
 
 })

@@ -16,9 +16,7 @@ const db = getFirestore()
 
 // collection ref
 const colRef_requests = collection(db,'requests')
-var dets = sessionStorage.getItem('user_details')
-const user_details = JSON.parse(dets)
-console.log(user_details.uid)
+
 
 const emergencyRequestForm = document.querySelector('.emergency-form')
 console.log(emergencyRequestForm)
@@ -35,11 +33,10 @@ emergencyRequestForm.addEventListener('submit', (e) => {
         appartment: document.getElementById('appartment').value,
         emergency: true,
         status: "approved",
-        stud_id: `${user_details.uid}`,
+        stud_id: "studdoc.id",
         app_date: ""
-    }).then(()=>{
-
-        emergencyRequestForm.reset()
-        window.location.href = "studashboard.html"
     })
+    // emergencyRequestForm.reset()
+    console.log("submitted")
+    setTimeout(function(){window.location.href = "studashboard.html";},3000)
 })

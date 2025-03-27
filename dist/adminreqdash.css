@@ -1,70 +1,49 @@
 body {
     font-family: 'Arial', sans-serif;
     margin: 0;
-    /* padding: 20px; */
+    padding: 80px 20px 20px 20px; /* Added top padding to accommodate the fixed header */
     background-color: #f4f4f9;
-    /* display: flex; */
-    /* flex-direction: column; */
-    /* flex: auto; */
-    /* justify-content: center; */
-    /* justify-content: space-evenly ; */
+    min-height: 100vh;
 }
 
+.header {
+    text-align: center;
+    margin-bottom: 20px;
+}
 
+.header h1 {
+    color: #d32f2f;
+    margin: 0;
+    font-size: 2rem;
+}
+
+.header h2, .header h3 {
+    margin: 5px 0;
+    color: #555;
+    font-size: 1.2rem;
+}
 
 .table-container {
-    
-    display: block;
-    margin: 5% auto;
-    max-width: 90%;
-    max-height: 60%;
-    padding: 50px;
+    margin: 0 auto;
+    max-width: 95%; /* Increased max-width for better screen utilization */
+    padding: 20px;
     background-color: white;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-    overflow: auto;
-}
-
-header {
-    background-color: #006dc7;
-    width: 100%;
-    padding: 15px 0;
-    text-align: center;
-    text-shadow: -1px 0.5px 6px rgb(255, 255, 255);
-    color: rgb(255, 255, 255);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    position: relative;
-    top: 0;
-    left: 0;
-    z-index: 1000;
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-}
-
-header h3{
-    display: block;
-}
-
-.logo{
-    height: 5rem;
-    width: 5rem;
-    display: inline-block;
-    background-size: cover;
-    background-image: url("nfsulogo.png");
-
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Increased shadow for better visual separation */
+    border-radius: 8px; /* Rounded corners for the container */
 }
 
 select, button {
     margin: 10px 0;
-    padding: 10px;
+    padding: 10px 15px; /* Increased padding for better touch area */
     border-radius: 5px;
     border: 1px solid #ccc;
     background-color: #fafafa;
     cursor: pointer;
+    transition: background-color 0.3s ease; /* Added transition for smoother hover effect */
 }
 
 select:hover, button:hover {
-    background-color: #f0f0f0;
+    background-color: #e0e0e0; /* Darker hover color */
 }
 
 table {
@@ -72,7 +51,9 @@ table {
     border-collapse: collapse;
     margin: 20px 0;
     font-size: 16px;
-
+    border-radius: 8px; /* Rounded corners for the table */
+    overflow: hidden; /* Hides the rounded corner overflow */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
 
 thead {
@@ -81,8 +62,10 @@ thead {
 }
 
 thead th {
-    padding: 10px;
+    padding: 12px; /* Increased padding for better spacing */
     text-align: left;
+    font-weight: 600;
+    text-transform: uppercase;
 }
 
 tbody tr:nth-child(odd) {
@@ -90,26 +73,102 @@ tbody tr:nth-child(odd) {
 }
 
 tbody tr:hover {
-    background-color: #f1f1f1;
+    background-color: #f0f0f0; /* Darker hover color */
 }
 
 tbody td {
-    padding: 10px;
-    border-bottom: 1px solid #ccc;
+    padding: 12px; /* Increased padding for better spacing */
+    border-bottom: 1px solid #eee; /* Lighter border color */
 }
 
 button {
     display: block;
     width: 200px;
     margin: 20px auto;
-    padding: 10px 20px;
+    padding: 12px 20px; /* Increased padding for better touch area */
     background-color: #388e3c;
     color: white;
     border: none;
     border-radius: 5px;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
 }
 
 button:hover {
-    background-color: #2e7d32;
+    background-color: #255e29; /* Darker hover color */
 }
 
+header {
+    background-color: #006dc7;
+    width: 100%;
+    padding: 15px 0;
+    text-align: center;
+    color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-around; /* Changed from space-evenly to space-around */
+    align-items: center;
+}
+
+.logo {
+    height: 5rem;
+    width: 5rem;
+    display: inline-block;
+    background-size: contain; /* Changed to contain */
+    background-repeat: no-repeat;
+    background-image: url("nfsulogo.png");
+    background-position: center;
+}
+
+/* Responsive Design - Media Queries */
+@media (max-width: 768px) {
+    body {
+        padding: 80px 10px 10px 10px; /* Adjust padding for smaller screens */
+    }
+
+    .header h1 {
+        font-size: 1.8rem; /* Smaller font size for smaller screens */
+    }
+
+    .header h2, .header h3 {
+        font-size: 1rem; /* Smaller font size for smaller screens */
+    }
+
+    .table-container {
+        max-width: 100%; /* Full width on smaller screens */
+        padding: 10px;
+    }
+
+    table {
+        font-size: 14px; /* Smaller font size for smaller screens */
+    }
+
+    thead th {
+        padding: 10px; /* Reduced padding for smaller screens */
+    }
+
+    tbody td {
+        padding: 10px; /* Reduced padding for smaller screens */
+    }
+
+    button {
+        width: 100%; /* Full width on smaller screens */
+    }
+    header{
+        justify-content: space-around;
+        padding: 10px 0;
+    }
+}
+
+header.top-header{
+    justify-content: center;
+}
+
+.logo{
+    width: 120px;
+    height: 120px;
+}

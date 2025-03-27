@@ -16,8 +16,7 @@ const db = getFirestore()
 
 // collection ref
 const colRef_users = collection(db,'users')
-const colRef_requests = collection(db,'requests')
-const q1 = query(colRef_requests,where('status','==','pending'))
+// const colRef_requests = collection(db,'requests')
 
 
 
@@ -43,16 +42,21 @@ document.getElementById("rand1").addEventListener("click", async function (e) {
         const q = query(colRef_users,where('email_id','==', `${email}`)) ;
         onSnapshot(q,(snapshot) => {  //function to verify role of user and redirect based on it
 
-            let requests = []
+            let users = []
             console.log(snapshot)
             snapshot.docs.forEach((doc) => {
-                requests.push({...doc.data(), id: doc.id , uid: user.uid })
+                users.push({...doc.data(), id: doc.id , uid: user.uid })
             })
-            console.log(requests)
-            if (requests[0].role === 'admin'){
+            console.log(users)
+            if (users[0].role === 'admin'){
                 console.log("Yes")
+                sessionStorage.clear()
+                // storing user details in session storage
+                sessionStorage.setItem('user_details',JSON.stringify(users[0]))
+                var req = JSON.parse(sessionStorage.getItem('user_details'))
+                console.log(req)
                 // Redirect to homepage
-                window.location.href = "facdashboard.html";
+                setTimeout( function(){window.location.href = "facdashboard.html";},3000)
             }
 
             else{
