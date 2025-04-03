@@ -18,12 +18,23 @@
                 facultyForm.style.display = "flex";
             }
         }
+
+        function togglePassword(passwordId) {
+            const passwordField = document.getElementById(passwordId);
+            if (passwordField.type === "password") {
+                passwordField.type = "text";
+            } else {
+                passwordField.type = "password";
+            }
+        }
     </script>
+
 
 
 </head>
 <body>
     <div class="header">
+        <img src="nfsulogo.png" alt="NFSU Logo" class="logo">
         <h1>NATIONAL FORENSIC SCIENCE UNIVERSITY</h1>
         <h2>Dharwad Campus, Karnataka 580011</h2>
     </div>
@@ -46,7 +57,10 @@
                 <input type="text" id="email1" name="email" placeholder="Enter your Email" required>
 
                 <label for="password">Password:</label>
-                <input type="password" id="password1" name="password" required>
+                <div class="password-wrapper">
+                    <input type="password" id="password1" name="password" required>
+                    <img src="eye.png" alt="Show Password" class="eye-icon" onclick="togglePassword('password1')">
+                </div>
                 <button type="button" id="rand">Login</button>
             </div>
 
@@ -58,6 +72,9 @@
                 <label for="facultyPassword">Password:</label>
                 <input type="password" id="facultyPassword" name="facultyPassword" required>
                 <button type="button" id="rand1">Login</button>
+                <div class="password-wrapper">
+                <img src="eye.png" alt="Show Password" class="eye-icon" onclick="togglePassword('facultyPassword')">
+                </div>
             </div>
 
             <!-- Submit Button -->
